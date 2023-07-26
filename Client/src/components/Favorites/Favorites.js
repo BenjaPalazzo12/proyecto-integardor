@@ -9,7 +9,7 @@ function Favorites(props){
             id= {pj.id}
             name={pj.name}// aca buscamos el nombre del character
             status={pj.status}// aca buscamos el estado del character
-            origin={pj.origin.name}// aca buscamos el origen del character
+            origin={pj.origin}// aca buscamos el origen del character
             species={pj.species}// aca buscamos la especie del character
             gender={pj.gender}// aca buscamos el genero del character
             image={pj.image}// aca buscamos la imagen del character

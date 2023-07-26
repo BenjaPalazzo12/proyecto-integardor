@@ -1,4 +1,4 @@
-.button {
+.container {
     color: #1cc49d;
   background-color: #1b2f31;
   border-radius: 50px;
@@ -9,4 +9,15 @@
   width: 8em;
   font-size: large;
   font-weight: 600;
+}
+
+.container input {
+  border-radius: 20px;
+  display: flex;
+  justify-content:end;
+  align-items: center;
+  font-size:medium;
+  font-weight: 600;
+  height: 4px;
+  width: 5em;
 }

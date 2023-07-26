@@ -12,7 +12,7 @@ export default function Detail(){
     
     
     useEffect(() => {
-        axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
+        axios(`http://localhost:3001/character/${id}`).then(({ data }) => {
            if (data.name) {
                 setPjDetail(data);
            } else {

@@ -1,19 +1,9 @@
 import React from "react";
 // import style from "styled-components";
 import { useState } from "react";
+import style from './SearchBar.module.css'
 
 
-const botonStyle = {
-   color: '#1cc49d',
-   backgrounColor: '#1b2f31',
-   borderRadius: '50px',
-   justifyContent: 'center',
-   alignItems: 'center',
-   height: '30px',
-   width: '90px',
-   fontSize: 'large',
-   fontWeight: '600',
-}
 export default function SearchBar({onSearch}) {
 
    const [id, SetId] = useState('');
@@ -25,8 +15,8 @@ export default function SearchBar({onSearch}) {
    
    return (
       <div>
-         <input type='search' onChange={handleChange} value={id} />
-         <button style={botonStyle}  onClick={() => onSearch(id)}>Agregar</button>
+         <input className={style.input}type='search' onChange={handleChange} value={id} />
+         <button className={style.container}  onClick={() => onSearch(id)}>Agregar</button>
       </div>
    );
 }

@@ -62,7 +62,7 @@ function Card({id, name, onClose, species,gender, status, origin, image, removeF
    return (
       <DivConEstilos>
          {
-            onClose ? <button style={botonStyle} onClick={() => onClose(id)}>
+            onClose? <button style={botonStyle} onClick={() => onClose(id)}>
                CERRAR
             </button> : null
          }
