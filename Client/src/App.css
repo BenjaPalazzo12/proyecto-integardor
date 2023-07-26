@@ -1,0 +1,13 @@
+.App {
+   text-align: center;
+   height: 100%;
+   /* background-position: center center; */
+   ;
+}
+
+body {
+   background-image: url(./imagenes/anatomia-de-rick-y-morty_3840x2160_xtrafondos.com.jpg);
+   background-size: cover ;
+   background-repeat: no-repeat;
+
+}
