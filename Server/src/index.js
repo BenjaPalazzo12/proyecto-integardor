@@ -3,6 +3,7 @@ const morgan = require('morgan')
 dotenv.config();
 const { PORT, PASSWORD } = process.env;
 const cors = require('cors')
+const {conn} = require('./DB_connection')
 
 //Routers
 const characterRouter = require('./routes/character');
@@ -32,8 +33,19 @@ server.get("/health_check", (req, res) =>{
     res.send("Working!")
 })
 
-server.listen(PORT, () => {
-    console.log('Server raised in port: ' + PORT);
-})
+// server.listen(PORT, async () => {
+//     await conn.sync()
+//     console.log("DB Sync");
+//     console.log('Server raised in port: ' + PORT);
+// })
+
+
+conn
+    .sync({force: false})
+    .then(value =>{
+    server.listen(PORT, ()=>{
+        console.log("Server & DB Running ✅");
+    })
+    }).catch(err => console.error(err))
 
 
