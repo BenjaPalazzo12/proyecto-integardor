@@ -1,11 +1,12 @@
 const favoritesRouter = require('express').Router()
-const {postFav, deleteFav, getFav} = require('../controllers/handleFavorites')
+const postCharacter = require('../controllers/postCharacter')
+const deleteChar = require('../controllers/deleteChar')
 
 
-favoritesRouter.post('/', postFav)
+favoritesRouter.post('/', postCharacter)
 
-favoritesRouter.delete('/:id', deleteFav)
+favoritesRouter.delete('/:id', deleteChar)
 
-favoritesRouter.get('/', getFav)
+favoritesRouter.get('/', postCharacter)
 
 module.exports = favoritesRouter

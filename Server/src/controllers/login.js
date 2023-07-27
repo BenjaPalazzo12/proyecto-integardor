@@ -1,26 +1,19 @@
-const allowedUsers = require("../utils/user")
-const {User} = require('../models/User')
+const {User} = require('../DB_connection')
 
-
-function Login(req,res) {
-  
-    const {email, password} = req.query;
-    let access = false;
-    allowedUsers.forEach((user) => {
-        if(user.email === email && user.password === Number(password)){
-            access = true;
-        }
-    })
-    return res.json({ access })
-}
-
-async function createUser(obj){
+module.exports = async (req, res) =>{
     try {
-        const newUser = await User.create(obj)
-        return newUser
+        const { email, password } = req.query
+
+        if(!email || !password) return res.status(400).send("Faltan datos")
+        
+        const user = await User.findOne({where: {email}})
+
+        if(!user) return res.status(404).send("Usuario no encontrado")
+
+        return user.password === password 
+        ? res.json({access: true})
+        : res.status(403).send(error.message)
     } catch (error) {
-        throw error;
+        return res.status(500).send(error.message)
     }
 }
-
-module.exports = Login

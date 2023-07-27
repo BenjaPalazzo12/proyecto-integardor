@@ -1,18 +1,18 @@
-require('dotenv').config();
-const { Sequelize } = require('sequelize');
-const defineModelUser = require('./models/User')
-const defineModelCharacter = require('./models/Character')
-// const {DB_USER, DB_PASSWORD, DB_HOST, DB_NAME} = process.env;
+require("dotenv").config();
+const { Sequelize } = require("sequelize");
+const defineModelUser = require("./models/User");
+const defineModelCharacter = require("./models/Character");
 
-
-
-// EJERCICIO 03
-// A la instancia de Sequelize le falta la URL de conexión. ¡Agrégala!
-// Recuerda pasarle la información de tu archivo '.env'.
-
-// URL ----> postgres://DB_USER:DB_PASSWORD@DB_HOST/rickandmorty
-const sequelize = new Sequelize(`postgres://${"postgres"}:${"08252003"}@${"localhost"}/${"rickandmorty"}`,
-   { logging: false, native: false }
+// Lee las variables de entorno del archivo .env
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+// console.log(DB_HOST);
+// Construye la URL de conexión usando las variables de entorno
+const sequelize = new Sequelize(
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
+  {
+    logging: false,
+    native: false,
+  }
 );
 // async function testConnection(){
 //   try {
